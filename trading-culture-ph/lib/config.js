@@ -50,7 +50,6 @@ export const siteConfig = {
   ticker: [
     "FREE SIGNALS · COURSES · WEBINARS",
     "LIVE TRADING SESSIONS EVERY WEEK",
-    "1-ON-1 MENTORING, NO COST",
     "TRADING INVOLVES RISK — LEARN BEFORE YOU FUND",
   ],
   offers: [
