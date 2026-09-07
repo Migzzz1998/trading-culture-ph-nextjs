@@ -42,7 +42,7 @@ export default function Hero() {
                 Beginner&apos;s Trading Guide
               </a>
             </div>
-            <div className="flex gap-5 flex-wrap text-[13px] text-muted items-center justify-center">
+            <div className="flex gap-5 flex-wrap text-[13px] text-muted items-center justify-center mb-6">
               <span className="flex items-center gap-2">
                 <CheckBadge /> Regulated broker partner
               </span>
@@ -52,6 +52,12 @@ export default function Hero() {
               <span className="flex items-center gap-2">
                 <CheckBadge /> 100% free education, always
               </span>
+            </div>
+
+            <div className="max-w-[680px] mx-auto p-4 bg-positive/10 border border-positive/30 rounded-xl">
+              <p className="text-sm text-muted-light leading-relaxed">
+                <strong className="text-ink">Zero membership fees:</strong> The $100 minimum deposit goes 100% into your own regulated KVB trading account. We never touch your money — you can withdraw it anytime.
+              </p>
             </div>
           </div>
         </div>

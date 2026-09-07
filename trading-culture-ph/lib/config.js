@@ -67,7 +67,7 @@ export const siteConfig = {
   faqs: [
     {
       q: "How do I join?",
-      a: "Click the \"Join Our Community\" button at the top of this page. You'll be guided to register with KVB (our broker partner) and fund your account with at least $100 USD. Once that's done, you'll get immediate access to our Telegram/Discord channels where we share daily signals, course links, webinar schedules, and direct support from mentors. No waiting period, no approval process — you're in as soon as your account is funded."
+      a: "Click the \"Join Our Community\" button at the top of this page. You'll be guided to register with KVB (our regulated broker partner) and fund your account with at least $100 USD. This $100 is 100% your own trading capital (never a fee paid to us, and fully withdrawable at any time). Once funded, you'll get immediate access to our Telegram/Discord channels where we share daily signals, courses, webinar schedules, and direct support from mentors."
     },
     {
       q: "What broker do you use?",
@@ -95,7 +95,7 @@ export const siteConfig = {
     },
     {
       q: "What's the minimum deposit?",
-      a: "$100 USD. That's the minimum to open and activate your KVB account, which unlocks full community access. Can you trade with $100? Yes, but carefully — at 0.01 lot sizes (micro lots) and strict 1-2% risk per trade, you're looking at $1-2 risk per position. It's a good amount to learn with. Many of our members start at $100, master the basics, then add more capital once they're consistently profitable. Don't deposit more than you can afford to lose while you're in the learning phase."
+      a: "$100 USD. That's the minimum required by KVB to activate your live trading account. IMPORTANT: This is 100% your own money in your own account — we charge zero membership, subscription, or community fees. You can trade with it or withdraw it whenever you want. At 0.01 micro-lot sizing and strict 1-2% risk management, $100 is ideal for beginners to practice real execution safely."
     },
   ],
 };

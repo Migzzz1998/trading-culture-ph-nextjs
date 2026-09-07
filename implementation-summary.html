@@ -1,0 +1,479 @@
+<title>Implementation Summary — Trading Culture PH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-base: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-surface-raised: #1f2937;
+  --border: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --brand-gold: #fbbf24;
+  --brand-gold-soft: #fef3c7;
+  --accent-green: #10b981;
+  --accent-green-soft: #d1fae5;
+  --accent-blue: #3b82f6;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg-base: #ffffff;
+    --bg-surface: #f9fafb;
+    --bg-surface-raised: #f3f4f6;
+    --border: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #374151;
+    --text-muted: #6b7280;
+    --brand-gold: #d97706;
+    --brand-gold-soft: #fef3c7;
+    --accent-green: #059669;
+    --accent-green-soft: #d1fae5;
+    --accent-blue: #2563eb;
+  }
+}
+
+:root[data-theme="light"] {
+  --bg-base: #ffffff;
+  --bg-surface: #f9fafb;
+  --bg-surface-raised: #f3f4f6;
+  --border: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --brand-gold: #d97706;
+  --brand-gold-soft: #fef3c7;
+  --accent-green: #059669;
+  --accent-green-soft: #d1fae5;
+  --accent-blue: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+  margin-bottom: 1rem;
+}
+
+.badge::before {
+  content: "✓";
+  font-size: 0.875rem;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 70ch;
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--brand-gold);
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.impact-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--brand-gold);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.card-body {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.code-section {
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.code-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.code-content {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+
+.file-list {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.625rem 0.875rem;
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.file-item::before {
+  content: "📄";
+  font-size: 1rem;
+}
+
+.next-steps {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(251, 191, 36, 0.02) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  margin-top: 2rem;
+}
+
+.next-steps h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  margin-bottom: 1rem;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  background: rgba(251, 191, 36, 0.15);
+  border: 1px solid var(--brand-gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--brand-gold);
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.comparison {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.comparison-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-surface-raised);
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  align-items: start;
+}
+
+.comparison-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+}
+
+.label-before {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.label-after {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+}
+
+.comparison-text {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .comparison-item {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<div class="container">
+  <header class="header">
+    <div class="badge">Changes Deployed</div>
+    <h1>Trading Culture PH: UI Optimization Implementation</h1>
+    <p class="subtitle">
+      Two high-impact changes executed to maximize trust, transparency, and mobile conversion for the Philippine retail trading demographic.
+    </p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-num">01</span>
+      $100 Deposit Clarity Campaign
+    </h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Core Problem Solved</div>
+        <span class="impact-badge">High Trust Impact</span>
+      </div>
+      <div class="card-body">
+        Filipino beginners are frequently exposed to MLM and trading scams that ask for upfront "membership fees" or "course payments." The original copy didn't explicitly clarify that the $100 deposit is <strong>100% the user's own trading capital</strong>, not a fee paid to Trading Culture PH — creating hesitation at the conversion point.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Changes Made</div>
+      </div>
+      <div class="card-body">
+        Added explicit disclaimers across three critical conversion touchpoints:
+      </div>
+
+      <div class="comparison">
+        <div class="comparison-item">
+          <span class="comparison-label label-before">Before</span>
+          <div class="comparison-text">
+            "Click the 'Join Our Community' button at the top of this page. You'll be guided to register with KVB (our broker partner) and fund your account with at least $100 USD."
+          </div>
+        </div>
+        <div class="comparison-item">
+          <span class="comparison-label label-after">After</span>
+          <div class="comparison-text">
+            "This $100 is <strong>100% your own trading capital</strong> (never a fee paid to us, and fully withdrawable at any time). Once funded, you'll get immediate access to our Telegram/Discord channels…"
+          </div>
+        </div>
+      </div>
+
+      <div class="file-list">
+        <div class="file-item">lib/config.js → FAQ "How do I join?"</div>
+        <div class="file-item">lib/config.js → FAQ "What's the minimum deposit?"</div>
+        <div class="file-item">components/HowItWorks.jsx → Step 03 "Fund Your Account"</div>
+        <div class="file-item">components/Hero.jsx → New disclaimer box below CTAs</div>
+      </div>
+
+      <div class="code-section">
+        <div class="code-label">New Hero Disclaimer (components/Hero.jsx)</div>
+        <div class="code-content">&lt;div className="max-w-[680px] mx-auto p-4 bg-positive/10 border border-positive/30 rounded-xl"&gt;
+  &lt;p className="text-sm text-muted-light leading-relaxed"&gt;
+    &lt;strong className="text-ink"&gt;Zero membership fees:&lt;/strong&gt; The $100 minimum deposit goes 100% into your own regulated KVB trading account. We never touch your money — you can withdraw it anytime.
+  &lt;/p&gt;
+&lt;/div&gt;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">
+      <span class="section-num">02</span>
+      Sticky Mobile Bottom Action Bar
+    </h2>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Core Problem Solved</div>
+        <span class="impact-badge">Mobile Conversion</span>
+      </div>
+      <div class="card-body">
+        Over 80% of Filipino visitors browse on mobile via Facebook and TikTok. After scrolling past the hero, CTAs disappear, requiring users to scroll back up or hunt for navigation links. This creates friction at the exact moment a user decides to join.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Implementation</div>
+      </div>
+      <div class="card-body">
+        Built a lightweight, scroll-triggered fixed bottom bar (mobile-only, hidden on desktop) that keeps both conversion paths visible at all times:
+        <ul style="margin-top: 0.75rem; padding-left: 1.25rem; color: var(--text-secondary);">
+          <li><strong>Left Button:</strong> Free Messenger Group (low-friction observation tier)</li>
+          <li><strong>Right Button:</strong> Join Community (primary KVB registration modal)</li>
+        </ul>
+      </div>
+
+      <div class="file-list">
+        <div class="file-item">components/MobileBottomBar.jsx (new component created)</div>
+        <div class="file-item">app/page.js (imported and rendered at bottom)</div>
+      </div>
+
+      <div class="code-section">
+        <div class="code-label">Key Features</div>
+        <div class="code-content">• Appears after user scrolls 400px (past hero)
+• Backdrop blur + 95% opacity for premium feel
+• Messenger icon + "Free Group" label for clarity
+• Auto-hides on desktop (md:hidden)
+• Opens CoachSelectionModal on primary CTA tap</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="next-steps">
+    <h3>Deploy to Production</h3>
+    <div class="steps-list">
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <strong>Commit changes:</strong> <code style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; background: rgba(0,0,0,0.3); padding: 0.125rem 0.375rem; border-radius: 0.25rem;">git add . && git commit -m "Add $100 clarity disclaimers and mobile sticky CTA bar"</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <strong>Push to GitHub:</strong> <code style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; background: rgba(0,0,0,0.3); padding: 0.125rem 0.375rem; border-radius: 0.25rem;">git push origin main</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <div class="step-content">
+          <strong>Verify Vercel settings:</strong> Confirm <strong>Root Directory = trading-culture-ph</strong> (no leading space) and trigger redeploy.
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">4</span>
+        <div class="step-content">
+          <strong>Test on mobile:</strong> Open the live URL on a phone, scroll past hero, and verify the sticky bar appears with both CTAs functional.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

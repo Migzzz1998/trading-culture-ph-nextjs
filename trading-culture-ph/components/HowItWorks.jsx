@@ -15,7 +15,7 @@ export default function HowItWorks() {
     {
       n: "03",
       title: "Fund Your Account",
-      body: `Deposit at least $100 USD using bank transfer, credit/debit card, or e-wallet (GCash, PayMaya, etc.). Your funds usually appear in your trading account within 10 minutes to 2 hours depending on the method. Start small — only deposit what you can afford to lose while learning.`,
+      body: `Deposit at least $100 USD into your personal KVB account (via bank transfer, card, GCash, or Maya). This is 100% your own trading capital with zero community fees, and is withdrawable anytime. Only deposit what you can afford to risk while learning.`,
     },
     {
       n: "04",
