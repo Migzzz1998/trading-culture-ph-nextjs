@@ -41,12 +41,6 @@ export default function BrokerSpotlight() {
               <Benefit text={`Minimum lot sizes as low as ${broker.minLotSize} lots.`} />
               <Benefit text="Competitive spreads." />
             </ul>
-            <a
-              href={registrationUrl}
-              className="inline-block mt-5.5 px-6 py-3.5 rounded-lg font-semibold text-sm border border-edge text-ink hover:bg-surface hover:text-ink transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-            >
-              Register with {broker.name} →
-            </a>
           </div>
         </div>
       </div>
