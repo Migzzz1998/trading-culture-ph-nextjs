@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --base: #0b0e14;      /* Deep Slate background */
+  --surface: #151d2a;   /* Elevated container slate */
+  --edge: #263346;      /* Subtle muted border */
+  --brand: #6366f1;     /* Warm indigo / primary CTA */
+  --brand-hover: #4f46e5;
+  --brand-soft: #a5b4fc; /* lighter indigo for accents on dark bg */
+  --positive: #10b981;  /* muted emerald green */
+  --negative: #f43f5e;  /* coral crimson */
+  --ink: #f8fafc;       /* high-contrast text */
+  --muted: #94a3b8;     /* secondary/metadata text */
+  --muted-light: #b9c3d6; /* lighter muted for intermediate hierarchy */
+}
+
+@theme inline {
+  --color-base: var(--base);
+  --color-surface: var(--surface);
+  --color-edge: var(--edge);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-positive: var(--positive);
+  --color-negative: var(--negative);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  --font-display: var(--font-jakarta);
+  --font-body: var(--font-inter);
+  --font-mono-ui: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--base);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation-duration: 120s;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
