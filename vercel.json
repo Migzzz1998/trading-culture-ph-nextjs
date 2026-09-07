@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd trading-culture-ph && npm install && npm run build",
+  "devCommand": "cd trading-culture-ph && npm run dev",
+  "installCommand": "cd trading-culture-ph && npm install",
+  "framework": null,
+  "outputDirectory": "trading-culture-ph/.next"
+}
