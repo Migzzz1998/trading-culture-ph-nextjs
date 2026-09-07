@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { siteConfig } from "@/lib/config";
-import SignalPanel from "./SignalPanel";
 import CoachSelectionModal from "./CoachSelectionModal";
 
 export default function Hero() {
@@ -10,20 +9,20 @@ export default function Hero() {
   return (
     <>
       <section id="hero" className="bg-gradient-to-b from-base via-surface to-surface text-ink py-22 md:py-25">
-        <div className="max-w-[1120px] mx-auto px-6 grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
-          <div>
+        <div className="max-w-[1120px] mx-auto px-6 text-center">
+          <div className="max-w-[880px] mx-auto">
             <span className="font-[family-name:var(--font-mono-ui)] text-xs tracking-[0.14em] uppercase text-brand-soft font-medium">
               Free Trading Education &amp; Community
             </span>
             <h1 className="font-[family-name:var(--font-display)] font-semibold text-[clamp(36px,5vw,56px)] leading-[1.05] my-4.5">
               You don&apos;t have to learn the markets <em className="italic text-brand-soft">alone</em>.
             </h1>
-            <p className="text-lg leading-relaxed text-muted-light max-w-[52ch] mb-8">
+            <p className="text-lg leading-relaxed text-muted-light max-w-[62ch] mx-auto mb-8">
               {siteConfig.communityName} is a free, supportive community for people who are brand new
               to trading. Get signals, courses, live sessions, and real mentors — then open an account
               with our regulated broker partner when you&apos;re ready.
             </p>
-            <div className="flex gap-3.5 flex-wrap mb-9">
+            <div className="flex gap-3.5 flex-wrap justify-center mb-9">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="px-7 py-4 rounded-lg font-semibold text-sm bg-brand text-ink hover:bg-brand-hover hover:-translate-y-0.5 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand cursor-pointer"
@@ -43,7 +42,7 @@ export default function Hero() {
                 Beginner&apos;s Trading Guide
               </a>
             </div>
-            <div className="flex gap-5 flex-wrap text-[13px] text-muted items-center">
+            <div className="flex gap-5 flex-wrap text-[13px] text-muted items-center justify-center">
               <span className="flex items-center gap-2">
                 <CheckBadge /> Regulated broker partner
               </span>
@@ -55,7 +54,6 @@ export default function Hero() {
               </span>
             </div>
           </div>
-          <SignalPanel />
         </div>
       </section>
       <CoachSelectionModal
