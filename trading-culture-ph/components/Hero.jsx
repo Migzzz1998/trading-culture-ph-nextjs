@@ -56,7 +56,7 @@ export default function Hero() {
 
             <div className="max-w-[680px] mx-auto p-4 bg-positive/10 border border-positive/30 rounded-xl">
               <p className="text-sm text-muted-light leading-relaxed">
-                <strong className="text-ink">Zero membership fees:</strong> The $100 minimum deposit goes 100% into your own regulated KVB trading account. We never touch your money — you can withdraw it anytime.
+                <strong className="text-ink">Zero membership fees:</strong> The $100 minimum deposit goes 100% into your own regulated KVB trading account — you can withdraw it anytime.
               </p>
             </div>
           </div>
