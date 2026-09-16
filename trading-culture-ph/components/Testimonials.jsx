@@ -5,20 +5,42 @@ import { siteConfig } from "@/lib/config";
 export default function Testimonials() {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyLink = () => {
-    if (!navigator.clipboard) {
-      // Fallback for older browsers
-      const textarea = document.createElement('textarea');
-      textarea.value = siteConfig.observationCommunityUrl || '';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-    } else {
-      navigator.clipboard.writeText(siteConfig.observationCommunityUrl || '');
+  const handleCopyLink = async () => {
+    const url = siteConfig.observationCommunityUrl || "";
+    let success = false;
+
+    // Try modern Clipboard API if supported
+    if (typeof navigator !== "undefined" && navigator?.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(url);
+        success = true;
+      } catch {
+        // Fall back to execCommand if clipboard API fails (e.g. permissions/focus)
+      }
     }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+
+    // Fallback for non-secure HTTP, mobile webviews, or older browsers
+    if (!success && typeof document !== "undefined") {
+      try {
+        const textarea = document.createElement("textarea");
+        textarea.value = url;
+        textarea.style.position = "fixed";
+        textarea.style.left = "-9999px";
+        textarea.style.top = "-9999px";
+        textarea.setAttribute("readonly", "");
+        document.body.appendChild(textarea);
+        textarea.select();
+        success = document.execCommand("copy");
+        document.body.removeChild(textarea);
+      } catch (err) {
+        console.error("Failed to copy link:", err);
+      }
+    }
+
+    if (success) {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   return (
