@@ -14,6 +14,7 @@ export default function Nav() {
     { href: "#how-it-works", label: "How It Works" },
     { href: "#broker", label: "Broker" },
     { href: siteConfig.beginnerGuideUrl, label: "Beginner Guide", isExternal: true },
+    { href: "/forex101", label: "Forex 101" },
     { href: "#faq", label: "FAQ" },
   ];
 

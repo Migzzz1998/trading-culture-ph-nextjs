@@ -20,7 +20,7 @@ export default function HowItWorks() {
     {
       n: "04",
       title: "Get Your Community Access",
-      body: `Once your account is funded and verified, you'll receive an invite link to our private Telegram/Discord group via email or from the coach who referred you. Inside, you'll find: the signals channel, course library, live session schedule, and a direct line to mentors. You're officially in.`,
+      body: `Once your account is funded and verified, you'll receive an invite link to our private Messenger Community via email or from the coach who referred you. Inside, you'll find: the signals channel, course library, live session schedule, and a direct line to mentors. You're officially in.`,
     },
   ];
 

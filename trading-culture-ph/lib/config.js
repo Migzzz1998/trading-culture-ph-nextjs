@@ -2,7 +2,7 @@ export const siteConfig = {
   communityName: "Trading Culture PH",
   communitySinceYear: "2024",
   registrationUrl: "[INSERT REGISTRATION URL]",
-  beginnerGuideUrl: "https://bit.ly/4zVqZ4X",
+  beginnerGuideUrl: "https://bit.ly/4j3CL7h",
   observationCommunityUrl: "https://www.messenger.com/cm/AbYPPoEOBSD-vj7w/?send_source=cm%3Acopy_invite_link",
   broker: {
     name: "KVB",
@@ -17,7 +17,7 @@ export const siteConfig = {
   minimumDeposit: "100 USD",
   socials: {
     instagram: "[INSERT SOCIAL URL]",
-    telegram: "[INSERT SOCIAL URL]",
+    telegram: "https://bit.ly/4j3CL7h",
     youtube: "[INSERT SOCIAL URL]",
   },
   legal: {

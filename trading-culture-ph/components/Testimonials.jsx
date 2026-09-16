@@ -6,7 +6,17 @@ export default function Testimonials() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(siteConfig.observationCommunityUrl);
+    if (!navigator.clipboard) {
+      // Fallback for older browsers
+      const textarea = document.createElement('textarea');
+      textarea.value = siteConfig.observationCommunityUrl || '';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    } else {
+      navigator.clipboard.writeText(siteConfig.observationCommunityUrl || '');
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
