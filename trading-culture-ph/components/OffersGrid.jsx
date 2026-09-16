@@ -9,7 +9,7 @@ export default function OffersGrid() {
             What You Get, At No Cost
           </span>
           <h2 className="font-[family-name:var(--font-display)] font-semibold text-[clamp(28px,3.6vw,38px)] my-3.5">
-            Our community offers trading services 100% free.
+            Our community offers trading services 100% free forever.
           </h2>
           <p className="text-muted leading-relaxed">
             Everything below is included when you join — no subscriptions, no paywalls, no upsells.

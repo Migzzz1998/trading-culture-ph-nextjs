@@ -70,7 +70,7 @@ export default function HowItWorks() {
             rel="noopener noreferrer"
             className="shrink-0 px-6 py-3.5 rounded-lg font-semibold text-sm bg-positive text-base hover:opacity-90 transition inline-flex items-center gap-2 shadow-lg"
           >
-            Access Free Telegram Guide →
+            Access Free Telegram Guide Here →
           </a>
         </div>
       </div>
