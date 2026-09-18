@@ -4,7 +4,6 @@ import { siteConfig } from "@/lib/config";
 
 export default function CoachSelectionModal({ isOpen, onClose }) {
   const [selectedCoach, setSelectedCoach] = useState("");
-  const [showLink, setShowLink] = useState(false);
   const modalRef = useRef(null);
 
   // Close on Escape key
@@ -43,23 +42,7 @@ export default function CoachSelectionModal({ isOpen, onClose }) {
   }, [isOpen]);
 
   const handleCoachSelect = (e) => {
-    const coachName = e.target.value;
-    setSelectedCoach(coachName);
-    if (coachName) {
-      setShowLink(true);
-    } else {
-      setShowLink(false);
-    }
-  };
-
-  const handleContinue = () => {
-    if (selectedCoach) {
-      const coach = siteConfig.coaches.find((c) => c.name === selectedCoach);
-      if (coach && coach.registrationUrl) {
-        console.log("Opening URL:", coach.registrationUrl);
-        window.location.href = coach.registrationUrl;
-      }
-    }
+    setSelectedCoach(e.target.value);
   };
 
   if (!isOpen) return null;
@@ -118,7 +101,7 @@ export default function CoachSelectionModal({ isOpen, onClose }) {
           </select>
         </div>
 
-        {showLink && selectedCoachData && (
+        {selectedCoachData && (
           <div className="mb-6 p-4 bg-positive/10 border border-positive/30 rounded-xl animate-in fade-in slide-in-from-top-2 duration-300">
             <div className="flex items-start gap-3">
               <span className="w-5 h-5 mt-0.5 rounded-full bg-positive/20 border border-positive text-positive inline-flex items-center justify-center text-xs shrink-0">
@@ -138,18 +121,30 @@ export default function CoachSelectionModal({ isOpen, onClose }) {
 
         <div className="flex gap-3">
           <button
+            type="button"
             onClick={onClose}
             className="flex-1 px-5 py-3 rounded-lg font-semibold text-sm border border-edge text-muted hover:text-ink hover:bg-base transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
           >
             Cancel
           </button>
-          <button
-            onClick={handleContinue}
-            disabled={!selectedCoach}
-            className="flex-1 px-5 py-3 rounded-lg font-semibold text-sm bg-brand text-ink hover:bg-brand-hover transition disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
-          >
-            Continue to Registration →
-          </button>
+          {selectedCoachData?.registrationUrl ? (
+            <a
+              href={selectedCoachData.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 px-5 py-3 rounded-lg font-semibold text-sm bg-brand text-ink hover:bg-brand-hover transition text-center inline-flex items-center justify-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            >
+              Continue to Registration →
+            </a>
+          ) : (
+            <button
+              type="button"
+              disabled
+              className="flex-1 px-5 py-3 rounded-lg font-semibold text-sm bg-brand text-ink transition opacity-50 cursor-not-allowed text-center inline-flex items-center justify-center"
+            >
+              Continue to Registration →
+            </button>
+          )}
         </div>
 
         <div className="mt-5 pt-4 border-t border-edge text-center">

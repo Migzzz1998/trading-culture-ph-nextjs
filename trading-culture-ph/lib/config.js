@@ -35,7 +35,7 @@ export const siteConfig = {
     },
     {
       name: "Coach Chris",
-      registrationUrl: "https://l.facebook.com/l.php?u=https%3A%2F%2Fc0je7m6ow.plusiaa.com%2F%3Ffbclid%3DIwcGRvZgVleHRuA2FlbQIxMABicmlkETExYm95bVI5Z0M2aGdYZE9Dc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHjSs4-f93aSpD9o_hrAu3YKqqEUuSKc9K1iHqwzyj-7HclRTsek-i8CH87pJ_aem_RL5TqfpdMdVr-EFaJO50zA&h=AUASHSyanTi2ctgor0BPTQzFT44s-m4dXB0LIhGyDF7ITkId2FPeuV7S-aZ4jvX-mVrBw8A-Xwu6quj84tF1-g6jpk43_UfA9Z1eQoPoJJqGzLMQehT2D-ZK8CBHMbY", // Replace with actual referral link
+      registrationUrl: "https://c0je7m6ow.plusiaa.com/", // Replace with actual referral link
     },
     {
       name: "Coach JV",
