@@ -21,8 +21,8 @@ export const siteConfig = {
     youtube: "[INSERT SOCIAL URL]",
   },
   legal: {
-    privacyPolicyUrl: "[INSERT PRIVACY POLICY URL]",
-    termsUrl: "[INSERT TERMS URL]",
+    privacyPolicyUrl: "https://static.kvbplus.com/pdf/privacy-policy.pdf",
+    termsUrl: "https://static.kvbplus.com/pdf/terms-conditions.pdf",
     regulations: "http://kvbplus.com/en/about-us/licenses"
   },
   coaches: [
