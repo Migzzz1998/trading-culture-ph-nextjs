@@ -39,6 +39,7 @@ export default function Footer() {
               links={[
                 { href: siteConfig.legal.privacyPolicyUrl, label: "Privacy Policy" },
                 { href: siteConfig.legal.termsUrl, label: "Terms & Conditions" },
+                { href: siteConfig.legal.regulations, label: "Regulations" },
               ]}
             />
             <FooterCol
