@@ -46,7 +46,6 @@ export default function Footer() {
               title="Connect"
               links={[
                 { href: siteConfig.socials.instagram, label: "Instagram" },
-                { href: siteConfig.beginnerGuideUrl, label: "Telegram Channel", isExternal: true },
                 { href: siteConfig.socials.youtube, label: "YouTube" },
               ]}
             />
