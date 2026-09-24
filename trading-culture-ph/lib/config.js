@@ -17,7 +17,6 @@ export const siteConfig = {
   minimumDeposit: "100 USD",
   socials: {
     instagram: "https://www.instagram.com/kvb.official?stkn=ZDNlZDc0MzIxNw==",
-    telegram: "https://bit.ly/4j3CL7h",
     youtube: "https://www.youtube.com/@kvb_official.",
   },
   legal: {
