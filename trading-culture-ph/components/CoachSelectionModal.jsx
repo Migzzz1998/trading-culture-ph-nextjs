@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/config";
 export default function CoachSelectionModal({ isOpen, onClose }) {
   const [selectedCoach, setSelectedCoach] = useState("");
   const modalRef = useRef(null);
+  const coachSelectRef = useRef(null);
 
   // Close on Escape key
   useEffect(() => {
@@ -17,14 +18,19 @@ export default function CoachSelectionModal({ isOpen, onClose }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Focus trap
+  // Focus trap - focus the coach select when modal opens
   useEffect(() => {
-    if (isOpen && modalRef.current) {
-      const focusableElements = modalRef.current.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-      if (focusableElements.length > 0) {
-        focusableElements[0].focus();
+    if (isOpen) {
+      if (coachSelectRef.current) {
+        coachSelectRef.current.focus();
+      } else if (modalRef.current) {
+        // Fallback to first focusable element if select ref not available
+        const focusableElements = modalRef.current.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+        }
       }
     }
   }, [isOpen]);
@@ -87,6 +93,7 @@ export default function CoachSelectionModal({ isOpen, onClose }) {
             Select Your Coach
           </label>
           <select
+            ref={coachSelectRef}
             id="coach-select"
             value={selectedCoach}
             onChange={handleCoachSelect}
