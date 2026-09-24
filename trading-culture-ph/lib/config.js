@@ -23,6 +23,7 @@ export const siteConfig = {
   legal: {
     privacyPolicyUrl: "[INSERT PRIVACY POLICY URL]",
     termsUrl: "[INSERT TERMS URL]",
+    regulations: "[http://kvbplus.com/en/about-us/licenses]"
   },
   coaches: [
     {
